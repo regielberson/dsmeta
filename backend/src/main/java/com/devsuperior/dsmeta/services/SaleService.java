@@ -1,6 +1,5 @@
 package com.devsuperior.dsmeta.services;
 
-
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -23,10 +22,10 @@ public class SaleService {
 		
 		 LocalDate today = LocalDate.ofInstant(Instant.now(), ZoneId.systemDefault());
 		
-		 LocalDate min =  minDate.equals("") ?  today.minusDays(365) :LocalDate.parse(maxDate);
-		 LocalDate max = maxDate.equals("") ?  today :LocalDate.parse(maxDate);
+		 LocalDate min = minDate.equals("") ? today.minusDays(365) :LocalDate.parse(minDate);
+		 LocalDate max = maxDate.equals("") ? today :LocalDate.parse(maxDate);
 		
-			return repository.findSales(min, max, pageable);
+			return repository.findSales(min,max, pageable);
 		}
 	}
 	
